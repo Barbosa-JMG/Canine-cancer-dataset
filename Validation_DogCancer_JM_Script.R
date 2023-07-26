@@ -10,7 +10,7 @@
 ##Data visualization using the 18VOMs (previously selected by GA-PLS)
 
  
-df <- read.csv("GA_DataSet_2023.csv", sep=",",header = TRUE)
+df <- read.csv("Chromosome1.csv", sep=",",header = TRUE)
 Num <- df[,8:25]
 Num.mat <- as.matrix(Num)                        
 Cancer <- as.factor(df$Cancer)
@@ -115,7 +115,7 @@ confusionMatrix(p2, test$Cancer)
 
 ### GA-PLS Chromosome 2
 #Use the Binary dataset file containing the 128VOMs detected in the study 
-df <- read.csv("DataSet_dogs_50CA.csv", sep=",",header = TRUE) 
+df <- read.csv("DataSet_dogs_JM.csv", sep=",",header = TRUE) 
 Cancer <- as.factor(df$Cancer)
 Num <- df[,8:135]
 Num.mat <- as.matrix(Num)
