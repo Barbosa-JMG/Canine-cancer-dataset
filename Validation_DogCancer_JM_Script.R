@@ -7,7 +7,7 @@
                         ###############################################################################
 
 ####Variable Selection - Cancer discriminaton####
-##Data visualization of the 18 VOMs (previous selected by GA-PLS)
+##Data visualization using the 18VOMs (previously selected by GA-PLS)
 
  
 df <- read.csv("GA_DataSet_2023.csv", sep=",",header = TRUE)
@@ -62,15 +62,15 @@ ggplot(data.frame(mds$li, df),
   theme_bw() +
   theme(text=element_text(size = 16, family="serif"))
 
-ggsave(filename = "PCO_LNG_18.png",width = 10,height = 5, dpi = 300, limitsize = F)
+ggsave(filename = "PCO_18.png",width = 10,height = 5, dpi = 300, limitsize = F)
 
 
 
 
-###Validation of the 18 VOMs selected by GA-PLS (Chromosome 1)
+###Validation of the 18VOMs selected by GA-PLS (Chromosome 1)
 library(caret)
 library(pls)
-df <- read.csv("GA_DataSet_2023.csv", sep=",",header = TRUE) 
+df <- read.csv("Chromosome1.csv", sep=",",header = TRUE) 
 Num <- df[,7:25]
 Num$Cancer <- factor(Num$Cancer)
 Num.mat <- as.matrix(Num)
@@ -114,7 +114,7 @@ confusionMatrix(p2, test$Cancer)
 
 
 ### GA-PLS Chromosome 2
-#Use the BinaryData_Model1.csv file containing the 128VOMs detected in the study 
+#Use the Binary dataset file containing the 128VOMs detected in the study 
 df <- read.csv("DataSet_dogs_50CA.csv", sep=",",header = TRUE) 
 Cancer <- as.factor(df$Cancer)
 Num <- df[,8:135]
